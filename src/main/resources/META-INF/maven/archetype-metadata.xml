@@ -9,6 +9,9 @@
         <requiredProperty key="port">
             <defaultValue>8080</defaultValue>
         </requiredProperty>
+        <requiredProperty key="is-micro-service">
+            <defaultValue>true</defaultValue>
+        </requiredProperty>
     </requiredProperties>
 
     <fileSets>
@@ -34,6 +37,14 @@
             <directory>src/main/resources</directory>
             <includes>
                 <include>**/*</include>
+            </includes>
+        </fileSet>
+        <fileSet filtered="true" packaged="false" encoding="UTF-8">
+            <directory/>
+            <includes>
+                <include>**/Dockerfile</include>
+                <include>**/Jenkinsfile</include>
+                <include>**/swagger.yaml</include>
             </includes>
         </fileSet>
     </fileSets>
