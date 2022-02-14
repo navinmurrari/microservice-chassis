@@ -1,3 +1,5 @@
+## Steps to setup project
+
 1. Check maven is installed using command mvn -version
 2. Build archetype using `mvn clean install`
 3. create a new directory for the new micro service
@@ -8,3 +10,9 @@
 6. check the new-microservice folder the src and pom.xml should be created
 7. To build the new-microservice project `mvn clean install`
 8. import project to intellij
+
+## Steps to generate api and models stub using swagger.yaml
+
+1. Update swagger.yaml using https://editor.swagger.io/
+2. Enter the command `mvn clean generate-sources -P stub-generation` this will generate models and api classes in the generated folder under base directory
+3. copy the api and model classes into the project

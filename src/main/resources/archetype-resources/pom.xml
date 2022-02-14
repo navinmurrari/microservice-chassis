@@ -143,6 +143,49 @@
         </plugins>
     </build>
 
+    <profiles>
+        <profile>
+            <id>stub-generation</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.openapitools</groupId>
+                        <artifactId>openapi-generator-maven-plugin</artifactId>
+                        <version>5.4.0</version>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>generate</goal>
+                                </goals>
+                                <configuration>
+                                    <skip>false</skip>
+                                    <inputSpec>swagger.yaml</inputSpec>
+                                    <output>${project.basedir}/generated</output>
+                                    <generatorName>spring</generatorName>
+                                    <apiPackage>${package}.api</apiPackage>
+                                    <modelPackage>${package}.models</modelPackage>
+                                    <configOptions>
+                                        <dateLibrary>legacy</dateLibrary>
+                                    </configOptions>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <artifactId>maven-clean-plugin</artifactId>
+                        <configuration>
+                            <filesets>
+                                <fileset>
+                                    <directory>${project.basedir}/generated</directory>
+                                </fileset>
+                            </filesets>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
 
 
 </project>
